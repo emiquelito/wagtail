@@ -16,5 +16,7 @@ deployments:
       - cd /myproject/mysite
       - python manage.py migrate
       - echo "from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.create_superuser('admin', 'admin@myproject.com', 'password')" | python manage.py shell
+      - sleep 600
     launch_steps:
       python manage.py runserver 0.0.0.0:80
+    ready_wait: 800
